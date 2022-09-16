@@ -11,30 +11,25 @@ public class Ruin {
 		double winChance;
 		int winLimit;
 		int currentAmount;
+		int winCount = 0;
+		int ruinCount = 0;
 		
 		Scanner input1 = new Scanner(System.in);
 		System.out.println("Enter start amount: ");
 		startAmount = input1.nextInt();
 		
-		Scanner input2 = new Scanner(System.in);
 		System.out.println("Enter win probability: ");
 		winChance = input1.nextDouble();
 		
-		Scanner input3 = new Scanner(System.in);
 		System.out.println("Enter win limit: ");
 		winLimit = input1.nextInt();
 		
-		int winCount = 0;
-		int ruinCount = 0;
-		
-		
-		Scanner input4 = new Scanner(System.in);
 		System.out.println("Enter total simulations ");
-		int totalSimulations = input4.nextInt();
-		int j = 0;
-		for(int i = 0; i < totalSimulations; i++){
-			currentAmount = startAmount;
+		int totalSimulations = input1.nextInt();
 
+		for(int i = 1; i <= totalSimulations; i++){
+			currentAmount = startAmount;
+			int j = 0;
 				while (currentAmount > 0 && currentAmount < winLimit) {
 					double win = Math.random();
 					//System.out.println(win);
@@ -62,7 +57,6 @@ public class Ruin {
 				System.out.println("Simulation " + i + ": " + j + " WIN");
 			}
 			
-			j = 0;
 			//System.out.println("Simulation " + i + ": " + j);	
 			
 			//j is always increasing, we have to reset it	
