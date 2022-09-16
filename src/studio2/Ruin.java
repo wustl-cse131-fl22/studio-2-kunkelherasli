@@ -35,17 +35,17 @@ public class Ruin {
 		for(int i = 0; i < totalSimulations; i++){
 			currentAmount = startAmount;
 
-			while (currentAmount > 0 && currentAmount < winLimit) {
-				double win = Math.random();
-				//System.out.println(win);
-				if (win < winChance) {
+				while (currentAmount > 0 && currentAmount < winLimit) {
+					double win = Math.random();
+					//System.out.println(win);
+					if (win < winChance) {
 					currentAmount ++;
+					}
+					else {
+						currentAmount --;
+					}
+					j++;
 				}
-				else {
-					currentAmount --;
-				}
-				j++;
-			}
 
 				
 			if (currentAmount > 0){
@@ -55,17 +55,23 @@ public class Ruin {
 				ruinCount++;
 			}
 			//currentAmount = startAmount;
-			/***if (j == 0) {
-				System.out.println("Simulation " + i + ": " + j)
-			}***/
-			System.out.println("Simulation " + i + ": " + j);	
-
-		}
+			if (currentAmount == 0) {
+				System.out.println("Simulation " + i + ": " + j + " LOSE");
+			}
+			else {
+				System.out.println("Simulation " + i + ": " + j + " WIN");
+			}
+			
+			j = 0;
+			//System.out.println("Simulation " + i + ": " + j);	
+			
+			//j is always increasing, we have to reset it	
+			}
 		
 		
 		
 
-		System.out.println("Win amount = " + winCount + "Ruin amount = " + ruinCount);
+		System.out.println("Win amount = " + winCount + " Ruin amount = " + ruinCount);
 		
 	}
 
